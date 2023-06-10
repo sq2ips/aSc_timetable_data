@@ -1,0 +1,110 @@
+{
+    "__args": [
+        null,
+        2022,
+        {
+            "vt_filter": {
+                "datefrom": "2023-06-05",
+                "dateto": "2023-06-11"
+            }
+        },
+        {
+            "op": "fetch",
+            "needed_part": {
+                "teachers": [
+                    "short",
+                    "name",
+                    "firstname",
+                    "lastname",
+                    "subname",
+                    "code",
+                    "cb_hidden",
+                    "expired",
+                    "firstname",
+                    "lastname",
+                    "short"
+                ],
+                "classes": [
+                    "short",
+                    "name",
+                    "firstname",
+                    "lastname",
+                    "subname",
+                    "code",
+                    "classroomid"
+                ],
+                "classrooms": [
+                    "short",
+                    "name",
+                    "firstname",
+                    "lastname",
+                    "subname",
+                    "code",
+                    "name",
+                    "short"
+                ],
+                "igroups": [
+                    "short",
+                    "name",
+                    "firstname",
+                    "lastname",
+                    "subname",
+                    "code"
+                ],
+                "students": [
+                    "short",
+                    "name",
+                    "firstname",
+                    "lastname",
+                    "subname",
+                    "code",
+                    "classid"
+                ],
+                "subjects": [
+                    "short",
+                    "name",
+                    "firstname",
+                    "lastname",
+                    "subname",
+                    "code",
+                    "name",
+                    "short"
+                ],
+                "events": [
+                    "typ",
+                    "name"
+                ],
+                "event_types": [
+                    "name",
+                    "icon"
+                ],
+                "subst_absents": [
+                    "date",
+                    "absent_typeid",
+                    "groupname"
+                ],
+                "periods": [
+                    "short",
+                    "name",
+                    "firstname",
+                    "lastname",
+                    "subname",
+                    "code",
+                    "period",
+                    "starttime",
+                    "endtime"
+                ],
+                "dayparts": [
+                    "starttime",
+                    "endtime"
+                ],
+                "dates": [
+                    "tt_num",
+                    "tt_day"
+                ]
+            },
+            "needed_combos": {}
+        }
+    ],
+    "__gsh": "00000000"
+}
