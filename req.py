@@ -27,6 +27,7 @@ try:
       opisy_j = json.load(f)
 except FileNotFoundError:
    logger.critical("Cannot find file named "+ req_opis)
+   exit()
 logger.info("Requesting for data...")
 
 plan = requests.post(url1, json=plan_j)
