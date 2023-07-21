@@ -22,29 +22,31 @@ try:
 except FileNotFoundError:
    logger.critical("Cannot find file named "+ req_opis)
    exit()
+   
+
 plan_j_data=plan_j["r"]["ttitems"]
 for i in range(len(plan_j_data)):
     plan_j_data=plan_j["r"]["ttitems"][i]
     data.append([plan_j_data['date'], plan_j_data["starttime"], plan_j_data["endtime"], plan_j_data["subjectid"], plan_j_data["classids"][0], plan_j_data["groupnames"][0], plan_j_data["teacherids"][0], plan_j_data["classroomids"][0]])
 
-teachers=[]
-teachers_n=[]
-subjects=[]
-subjects_n=[]
-classrooms=[]
-classrooms_n=[]
+
+print(len(data))
+
+
+
+teachers={}
+subjects={}
+classrooms={}
 opisy_j_data = opisy_j["r"]["tables"][0]["data_rows"]
 for i in range(len(opisy_j_data)):
-    teachers.append(opisy_j_data[i]["id"])
-    teachers_n.append(opisy_j_data[i]["short"])
+    teachers[opisy_j_data[i]["id"]]=opisy_j_data[i]["short"];
 opisy_j_data = opisy_j["r"]["tables"][1]["data_rows"]
 for i in range(len(opisy_j_data)):
-    subjects.append(opisy_j_data[i]["id"])
-    subjects_n.append(opisy_j_data[i]["name"])
+    subjects[opisy_j_data[i]["id"]]=opisy_j_data[i]["name"]
 opisy_j_data = opisy_j["r"]["tables"][2]["data_rows"]
 for i in range(len(opisy_j_data)):
-    classrooms.append(opisy_j_data[i]["id"])
-    classrooms_n.append(opisy_j_data[i]["short"])
+    classrooms[opisy_j_data[i]["id"]] = opisy_j_data[i]["short"]
 
-
-print(classrooms)
+#print("classrooms: " + str(classrooms))
+#print("subjects: " + str(subjects))
+#print("teachers: " + str(teachers))
