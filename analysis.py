@@ -51,7 +51,7 @@ plan=[]
 for i in range (len(data)):
     a = [data[i][0], data[i][1], data[i][2], subjects[data[i][3]], classes[data[i][4]], data[i][5], teachers[data[i][6]], classrooms[data[i][7]]]
     plan.append(a)
-print(plan[0])
+print(plan)
 
 #print("classrooms: " + str(classrooms))
 #print("subjects: " + str(subjects))
