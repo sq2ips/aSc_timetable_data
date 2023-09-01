@@ -30,8 +30,8 @@ except FileNotFoundError:
    exit()
 logger.info("Requesting for data...")
 
-
-
+print(plan_j["__args"][1]['year'])
+plan_j["__args"][1]['year']=2023
 plan = requests.post(url1, json=plan_j)
 opis = requests.post(url2, json=opisy_j)
 if(os.path.isfile(req_plan)):
