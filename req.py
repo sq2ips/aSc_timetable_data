@@ -30,6 +30,8 @@ except FileNotFoundError:
    exit()
 logger.info("Requesting for data...")
 
+
+
 plan = requests.post(url1, json=plan_j)
 opis = requests.post(url2, json=opisy_j)
 if(os.path.isfile(req_plan)):
