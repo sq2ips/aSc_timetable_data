@@ -2,11 +2,11 @@
     "__args": [
         null,
         {
-            "year": 2022,
-            "datefrom": "2023-06-05",
-            "dateto": "2023-06-11",
+            "year": 2023,
+            "datefrom": "2023-09-04",
+            "dateto": "2023-09-10",
             "table": "classes",
-            "id": "-219",
+            "id": "-194",
             "showColors": true,
             "showIgroupsInClasses": false,
             "showOrig": true,

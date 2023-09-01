@@ -27,7 +27,7 @@ plan_j_data=plan_j["r"]["ttitems"]
 for i in range(len(plan_j_data)):
     plan_j_data=plan_j["r"]["ttitems"][i]
     data.append([plan_j_data['date'], plan_j_data["starttime"], plan_j_data["endtime"], plan_j_data["subjectid"], plan_j_data["classids"][0], plan_j_data["groupnames"][0], plan_j_data["teacherids"][0], plan_j_data["classroomids"][0]])
-print(data)
+#print(data)
 
 
 
@@ -44,6 +44,6 @@ opisy_j_data = opisy_j["r"]["tables"][2]["data_rows"]
 for i in range(len(opisy_j_data)):
     classrooms[opisy_j_data[i]["id"]] = opisy_j_data[i]["short"]
 
-#print("classrooms: " + str(classrooms))
-#print("subjects: " + str(subjects))
-#print("teachers: " + str(teachers))
+print("classrooms: " + str(classrooms))
+print("subjects: " + str(subjects))
+print("teachers: " + str(teachers))

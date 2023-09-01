@@ -2,6 +2,8 @@ import requests
 import json
 import coloredlogs, logging
 import os
+from datetime import datetime
+from datetime import timedelta
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG')
@@ -29,9 +31,25 @@ except FileNotFoundError:
    logger.critical("Cannot find file named "+ req_opis)
    exit()
 logger.info("Requesting for data...")
+x=datetime.now()
+x=datetime(2023, 9, 2)
 
-print(plan_j["__args"][1]['year'])
-plan_j["__args"][1]['year']=2023
+
+if(x.strftime('%w') == '0'):
+    x=x+timedelta(days=1)
+    print("ni")
+elif(x.strftime('%w') == '6'):
+    print("so")
+    x=x+timedelta(days=2)
+    
+w = x-timedelta(days=x.weekday())
+
+plan_j["__args"][1]['datefrom'] = w.strftime("%Y-%m-%d")
+plan_j["__args"][1]['dateto'] = (w+timedelta(days=6)).strftime("%Y-%m-%d")
+
+opisy_j["__args"][2]["vt_filter"]['datefrom'] = w.strftime("%Y-%m-%d")
+opisy_j["__args"][2]['dateto'] = (w+timedelta(days=6)).strftime("%Y-%m-%d")
+
 plan = requests.post(url1, json=plan_j)
 opis = requests.post(url2, json=opisy_j)
 if(os.path.isfile(req_plan)):
