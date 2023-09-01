@@ -2,7 +2,6 @@ import json
 import coloredlogs, logging
 
 logger = logging.getLogger(__name__)
-coloredlogs.install(level='DEBUG')
 coloredlogs.install(level='DEBUG', logger=logger)
 
 data = []
@@ -14,13 +13,13 @@ try:
    with open(res_plan) as f:
       plan_j = json.load(f)
 except FileNotFoundError:
-   logger.critical("Cannot find file named "+ req_plan)
+   logger.critical("Cannot find file named "+ res_plan)
    exit()
 try:
    with open(res_opis) as f:
       opisy_j = json.load(f)
 except FileNotFoundError:
-   logger.critical("Cannot find file named "+ req_opis)
+   logger.critical("Cannot find file named "+ res_opis)
    exit()
    
 
@@ -28,9 +27,7 @@ plan_j_data=plan_j["r"]["ttitems"]
 for i in range(len(plan_j_data)):
     plan_j_data=plan_j["r"]["ttitems"][i]
     data.append([plan_j_data['date'], plan_j_data["starttime"], plan_j_data["endtime"], plan_j_data["subjectid"], plan_j_data["classids"][0], plan_j_data["groupnames"][0], plan_j_data["teacherids"][0], plan_j_data["classroomids"][0]])
-
-
-print(len(data))
+print(data)
 
 
 
