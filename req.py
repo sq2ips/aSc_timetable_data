@@ -9,8 +9,8 @@ logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG')
 coloredlogs.install(level='DEBUG', logger=logger)
 
-url1 = 'https://lo3gdynia.edupage.org/timetable/server/currenttt.js?__func=curentttGetData'
-url2 = 'https://lo3gdynia.edupage.org/rpr/server/maindbi.js?__func=mainDBIAccessor'
+url_plan = 'https://lo3gdynia.edupage.org/timetable/server/currenttt.js?__func=curentttGetData'
+url_opis = 'https://lo3gdynia.edupage.org/rpr/server/maindbi.js?__func=mainDBIAccessor'
 
 req_plan='plan_request.json'
 req_opis='opis_request.json'
@@ -23,13 +23,13 @@ try:
       plan_j = json.load(f)
 except FileNotFoundError:
    logger.critical("Cannot find file named "+ req_plan)
-   exit()
+   exit(13)
 try:
    with open(req_opis) as f:
       opisy_j = json.load(f)
 except FileNotFoundError:
    logger.critical("Cannot find file named "+ req_opis)
-   exit()
+   exit(13)
 logger.info("Requesting for data...")
 x=datetime.now()
 #x=datetime(2023, 9, 2)
@@ -50,8 +50,8 @@ plan_j["__args"][1]['dateto'] = (w+timedelta(days=6)).strftime("%Y-%m-%d")
 opisy_j["__args"][2]["vt_filter"]['datefrom'] = w.strftime("%Y-%m-%d")
 opisy_j["__args"][2]['dateto'] = (w+timedelta(days=6)).strftime("%Y-%m-%d")
 
-plan = requests.post(url1, json=plan_j)
-opis = requests.post(url2, json=opisy_j)
+plan = requests.post(url_plan, json=plan_j)
+opis = requests.post(url_opis, json=opisy_j)
 if(os.path.isfile(req_plan)):
    logger.warning("File named " + req_plan + " exists, overwriting")
 with open(res_plan, 'w') as outfile:
