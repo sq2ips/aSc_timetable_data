@@ -32,7 +32,7 @@ except FileNotFoundError:
    exit()
 logger.info("Requesting for data...")
 x=datetime.now()
-x=datetime(2023, 9, 2)
+#x=datetime(2023, 9, 2)
 
 
 if(x.strftime('%w') == '0'):
